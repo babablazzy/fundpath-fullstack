@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
+import { signOut } from 'next-auth/react'
 
 export default function Home() {
   const { data: session, status } = useSession()
@@ -26,41 +27,40 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex items-center space-x-4">
-              {status === 'loading' ? (
-                <div className="animate-pulse bg-gray-200 h-8 w-20 rounded"></div>
-              ) : session ? (
+            {/* Navigation Links */}
+            <div className="flex items-center space-x-6">
+              {session ? (
                 <>
-                  <Link 
+                  <Link
                     href="/dashboard"
-                    className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
                   >
                     Dashboard
                   </Link>
-                  <Link 
-                    href="/dashboard/analytics"
-                    className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                  <Link
+                    href="/docs"
+                    className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
                   >
-                    Analytics
+                    Documentation
                   </Link>
-                  <Link 
-                    href="/dashboard/settings"
-                    className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-md text-sm font-medium"
+                  <button
+                    onClick={() => signOut()}
+                    className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
                   >
-                    Settings
-                  </Link>
+                    Sign Out
+                  </button>
                 </>
               ) : (
                 <>
-                  <Link 
+                  <Link
                     href="/auth/signin"
-                    className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-700 hover:text-gray-900 transition-colors duration-200"
                   >
                     Sign In
                   </Link>
-                  <Link 
+                  <Link
                     href="/auth/signup"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
                   >
                     Get Started
                   </Link>
@@ -310,12 +310,12 @@ export default function Home() {
               <h4 className="text-lg font-semibold mb-4">Support</h4>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white">
+                  <a href="/docs" className="text-gray-400 hover:text-white">
                     Documentation
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white">
+                  <a href="/docs/api" className="text-gray-400 hover:text-white">
                     API Reference
                   </a>
                 </li>

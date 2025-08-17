@@ -55,12 +55,12 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-gray-900 mb-4">Support</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">
+                <a href="/docs" className="text-gray-600 hover:text-gray-900 text-sm">
                   Documentation
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">
+                <a href="/docs/api" className="text-gray-600 hover:text-gray-900 text-sm">
                   API Reference
                 </a>
               </li>

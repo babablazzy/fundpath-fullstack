@@ -23,15 +23,15 @@ interface ApiKeyForm {
 }
 
 const SUPPORTED_NETWORKS = [
-  { network: 'BTC', token: 'BTC', name: 'Bitcoin', symbol: 'BTC', icon: 'fa-bitcoin', color: 'text-orange-500' },
-  { network: 'ETH', token: 'ETH', name: 'Ethereum', symbol: 'ETH', icon: 'fa-ethereum', color: 'text-blue-500' },
-  { network: 'BSC', token: 'BNB', name: 'Binance Smart Chain', symbol: 'BNB', icon: 'fa-coins', color: 'text-yellow-500' },
-  { network: 'TRX', token: 'TRX', name: 'Tron', symbol: 'TRX', icon: 'fa-bolt', color: 'text-red-500' },
-  { network: 'SOL', token: 'SOL', name: 'Solana', symbol: 'SOL', icon: 'fa-circle', color: 'text-purple-500' },
-  { network: 'TON', token: 'TON', name: 'Toncoin', symbol: 'TON', icon: 'fa-gem', color: 'text-cyan-500' },
-  { network: 'ETH', token: 'USDT', name: 'USDT (Ethereum)', symbol: 'USDT', icon: 'fa-dollar-sign', color: 'text-green-500' },
-  { network: 'BSC', token: 'USDT', name: 'USDT (BSC)', symbol: 'USDT', icon: 'fa-dollar-sign', color: 'text-green-500' },
-  { network: 'TRX', token: 'USDT', name: 'USDT (Tron)', symbol: 'USDT', icon: 'fa-dollar-sign', color: 'text-green-500' },
+  { network: 'BTC', token: 'BTC', name: 'Bitcoin', symbol: 'BTC' },
+  { network: 'ETH', token: 'ETH', name: 'Ethereum', symbol: 'ETH' },
+  { network: 'BSC', token: 'BNB', name: 'Binance Smart Chain', symbol: 'BNB' },
+  { network: 'TRX', token: 'TRX', name: 'Tron', symbol: 'TRX' },
+  { network: 'SOL', token: 'SOL', name: 'Solana', symbol: 'SOL' },
+  { network: 'TON', token: 'TON', name: 'Toncoin', symbol: 'TON' },
+  { network: 'ETH', token: 'USDT', name: 'USDT (Ethereum)', symbol: 'USDT' },
+  { network: 'BSC', token: 'USDT', name: 'USDT (BSC)', symbol: 'USDT' },
+  { network: 'TRX', token: 'USDT', name: 'USDT (Tron)', symbol: 'USDT' },
 ]
 
 export default function CreateApiKey() {
@@ -442,12 +442,8 @@ export default function CreateApiKey() {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        <div className={`w-10 h-10 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center shadow-sm transition-all duration-200 ${network.color} ${
-                          isNetworkSelected(network.network, network.token) ? 'ring-2 ring-blue-200' : ''
-                        }`}>
-                          <i className={`fas ${network.icon} text-lg transition-transform duration-200 ${
-                            isNetworkSelected(network.network, network.token) ? 'scale-110' : ''
-                          }`}></i>
+                        <div className="w-10 h-10 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center shadow-sm transition-all duration-200">
+                          <div className="text-lg font-bold text-gray-700">{network.symbol}</div>
                         </div>
                         <div>
                           <h3 className="font-medium text-gray-900">{network.name}</h3>
@@ -495,8 +491,8 @@ export default function CreateApiKey() {
                       <div key={`${network.network}_${network.token}`} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 bg-gradient-to-br from-white to-gray-50">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center space-x-3">
-                            <div className={`w-12 h-12 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center shadow-md ${networkInfo?.color} hover:shadow-lg transition-all duration-200`}>
-                              <i className={`fas ${networkInfo?.icon} text-xl transition-transform duration-200 hover:scale-110`}></i>
+                            <div className="w-12 h-12 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-200">
+                              <div className="text-xl font-bold text-gray-700">{networkInfo?.symbol}</div>
                             </div>
                             <div>
                               <h3 className="text-lg font-medium text-gray-900">
